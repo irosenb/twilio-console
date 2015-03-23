@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sid: MyString
+  token: MyString
+  phone_number: MyString
+  app_sid: MyString
+
+two:
+  sid: MyString
+  token: MyString
+  phone_number: MyString
+  app_sid: MyString
