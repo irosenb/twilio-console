@@ -26,11 +26,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 gem 'twilio-ruby' 
-gem 'active_rest_client'
+gem 'active_rest_client', :git => "https://github.com/whichdigital/active-rest-client.git"
 gem 'twitter-bootstrap-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'figaro'
+gem 'patron'
+gem 'api-auth'
 
 
 # Use ActiveModel has_secure_password

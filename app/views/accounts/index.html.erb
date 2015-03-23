@@ -1,31 +1,27 @@
 <%- model_class = Account -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Accounts</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:sid) %></th>
-      <th><%= model_class.human_attribute_name(:token) %></th>
-      <th><%= model_class.human_attribute_name(:phone_number) %></th>
-      <th><%= model_class.human_attribute_name(:app_sid) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Name</th>
+      <th>Token</th>
+      <th>Created At </th>
+      <th>Status</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @accounts.each do |account| %>
+    <% @accounts.accounts.each do |account| %>
       <tr>
-        <td><%= link_to account.id, account_path(account) %></td>
-        <td><%= account.sid %></td>
-        <td><%= account.token %></td>
-        <td><%= account.phone_number %></td>
-        <td><%= account.app_sid %></td>
-        <td><%=l account.created_at %></td>
+        <td><%= account.friendly_name %></td>
+        <td><%= account.auth_token %></td>
+        <td><%= account.date_created %></td>
+        <td><span class="label label-<%= account.status == 'closed' ? 'danger' : 'info' %>"><%= account.status %></span></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_account_path(account), :class => 'btn btn-default btn-xs' %>
+                      edit_account_path(account.sid), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       account_path(account),
                       :method => :delete,

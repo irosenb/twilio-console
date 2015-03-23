@@ -1,17 +1,18 @@
 <%- model_class = Account -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1>Account</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:sid) %>:</strong></dt>
-  <dd><%= @account.sid %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:token) %>:</strong></dt>
-  <dd><%= @account.token %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
-  <dd><%= @account.phone_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:app_sid) %>:</strong></dt>
-  <dd><%= @account.app_sid %></dd>
+  <dt><strong>Sid:</strong></dt>
+  <dd><%= @account.accounts.items.first.sid %></dd>
+  <dt><strong>Token:</strong></dt>
+  <dd><%= @account.accounts.items.first.auth_token %></dd>
+  <dt><strong>Phone Number:</strong></dt>
+  <dd><%= @account.accounts.items.first.phone_number %></dd>
+  <dt><strong>app_sid:</strong></dt>
+  <dd><%= @account.accounts.items.first.app_sid %></dd>
+  <dd><%= @account.accounts.items.first.inspect %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
